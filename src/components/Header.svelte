@@ -39,8 +39,9 @@
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<h1
 		on:click|self={() => {
-			$mode = ($mode + 1) % modeData.modes.length;
-			toaster.pop(modeData.modes[$mode].name);
+			// Turn Off the Game Mode Switching on Header Click!
+			// $mode = ($mode + 1) % modeData.modes.length;
+			// toaster.pop(modeData.modes[$mode].name);
 		}}
 		on:contextmenu|preventDefault|self={() => {
 			$mode = ($mode - 1 + modeData.modes.length) % modeData.modes.length;
