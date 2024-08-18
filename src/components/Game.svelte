@@ -49,7 +49,8 @@
 
 	let showTutorial = $settings.tutorial === 3;
 	let showSettings = false;
-	let showStats = false;
+	let showBirthAnnouncement = false;
+	let guessedName = false;
 	let showHistorical = false;
 	let showRefresh = false;
 
@@ -93,11 +94,12 @@
 	function win() {
 		board.bounce(game.guesses - 1);
 		game.active = false;
+		guessedName = true;
 		setTimeout(
 			() => toaster.pop(PRAISE[game.guesses - 1]),
 			DELAY_INCREMENT * COLS + DELAY_INCREMENT
 		);
-		setTimeout(setShowStatsTrue, delay * 1.4);
+		setTimeout(setShowBirthAnnouncementTrue, delay * 1.4);
 		if (!modeData.modes[$mode].historical) {
 			stats.addWin(game.guesses, modeData.modes[$mode]);
 			stats = stats;
@@ -107,7 +109,7 @@
 
 	function lose() {
 		game.active = false;
-		setTimeout(setShowStatsTrue, delay);
+		setTimeout(setShowBirthAnnouncementTrue, delay);
 		if (!modeData.modes[$mode].historical) {
 			stats.addLoss(modeData.modes[$mode]);
 			stats = stats;
@@ -128,13 +130,16 @@
 		// Do not reset the word value! It is fixed in our context
 		//word = words.words[seededRandomInt(0, words.words.length, modeData.modes[$mode].seed)];
 		$letterStates = new LetterStates();
-		showStats = false;
+		showBirthAnnouncement = false;
+		guessedName = false;
 		showRefresh = false;
 		timer.reset($mode);
 	}
 
-	function setShowStatsTrue() {
-		if (!game.active) showStats = true;
+	function setShowBirthAnnouncementTrue() {
+		if (!game.active) {
+			showBirthAnnouncement = true;
+		}
 	}
 
 	function onSwipe(e: Swipe) {
@@ -197,7 +202,7 @@
 		on:submitWord={submitWord}
 		on:esc={() => {
 			showTutorial = false;
-			showStats = false;
+			showBirthAnnouncement = false;
 			showSettings = false;
 		}}
 		disabled={!game.active || $settings.tutorial === 3 || showHistorical}
@@ -212,8 +217,8 @@
 	<Tutorial visible={showTutorial} />
 </Modal>
 
-<Modal bind:visible={showStats}>
-		<BirthAnnouncement />
+<Modal bind:visible={showBirthAnnouncement}>
+		<BirthAnnouncement guessed={guessedName}/>
 </Modal>
 
 <Modal fullscreen={true} bind:visible={showSettings}>
