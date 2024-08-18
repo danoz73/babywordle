@@ -17,6 +17,7 @@
 		Timer,
 		Toaster,
 		ShareGame,
+		Tips,
 		Historical,
 	} from "./widgets";
 	import {

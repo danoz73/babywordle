@@ -221,12 +221,13 @@ export function seededRandomInt(min: number, max: number, seed: number) {
 export const DELAY_INCREMENT = 200;
 
 export const PRAISE = [
-	"Genius",
-	"Magnificent",
-	"Impressive",
-	"Splendid",
-	"Great",
-	"Phew",
+	"You Got It!"
+	// "Genius",
+	// "Magnificent",
+	// "Impressive",
+	// "Splendid",
+	// "Great",
+	// "Phew",
 ];
 
 abstract class Storable {
