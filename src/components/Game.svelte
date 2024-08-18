@@ -233,7 +233,7 @@
 	{#if !game.active}
 		<Definition {word} alternates={2} />
 	{:else}
-		<!-- Fade with delay is to prevent a bright red button from appearing as soon as refresh is pressed -->
+		<!-- Fade with delay is to prevent a bright red button from appearing as soon as refresh is pressed
 		<div
 			in:fade={{ delay: 300 }}
 			class="button concede"
@@ -242,15 +242,12 @@
 		>
 			give up
 		</div>
+		-->
 	{/if}
 </Modal>
 
 <Modal fullscreen={true} bind:visible={showSettings}>
 	<Settings state={game} on:historical={() => (showHistorical = true)} />
-	{#if game.active}
-		<div class="button concede" on:click={concede} on:keydown={concede}>give up</div>
-	{/if}
-	<Tips change={showSettings} />
 
 	<svelte:fragment slot="footer">
 		<a href="https://www.nytimes.com/games/wordle/" target="_blank" rel="noreferrer"
