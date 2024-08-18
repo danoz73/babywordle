@@ -10,7 +10,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build && cp CNAME dist/",
     "deploy": "gh-pages -d dist"
   },
   "repository": {

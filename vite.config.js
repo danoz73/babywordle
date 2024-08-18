@@ -4,11 +4,13 @@ import { version } from "./package.json";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  //base: "/babywordle/wordle",
   plugins: [svelte({
     preprocess: vitePreprocess()
   })],
-  base: process.env.NODE_ENV === 'production' ? '/babywordle/' : '/',
+  // Below is for use when hosting on danoz73.github.io/babywordle
+  // base: process.env.NODE_ENV === 'production' ? '/babywordle/' : '/',
+  // Below is for use when guessbabysname.com or local
+  base: '/',
   build: {
     rollupOptions: {
       output: {
