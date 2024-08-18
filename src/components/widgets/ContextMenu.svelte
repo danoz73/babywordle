@@ -1,18 +1,17 @@
 <script lang="ts">
 	import Definition from "./Definition.svelte";
 
-	export let x = 0;
-	export let y = 0;
-	export let word = "";
-	export let pAns: number;
-	export let pSols: number;
+	// export let x = 0;
+	// export let y = 0;
+	// export let word = "";
+	// export let pAns: number;
+	// export let pSols: number;
 	const width = +getComputedStyle(document.body).getPropertyValue("--game-width") / 2;
 
 	$: x = window.innerWidth - x < width ? window.innerWidth - width : x;
 </script>
 
-<style lang="scss">
-/*
+<!-- <style lang="scss">
 	.ctx-menu {
 		position: fixed;
 		z-index: 2;
@@ -33,5 +32,4 @@
 			padding-top: 5px;
 		}
 	}
-	*/
-</style>
+</style> -->

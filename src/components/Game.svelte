@@ -17,7 +17,6 @@
 		Timer,
 		Toaster,
 		ShareGame,
-		Tips,
 		Historical,
 	} from "./widgets";
 	import {
@@ -119,7 +118,7 @@
 
 	function concede() {
 		showSettings = false;
-		setTimeout(setShowStatsTrue, DELAY_INCREMENT);
+		setTimeout(setShowBirthAnnouncementTrue, DELAY_INCREMENT);
 		lose();
 	}
 
