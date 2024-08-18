@@ -136,13 +136,13 @@
 	function onSwipe(e: Swipe) {
 		switch (e.detail.direction) {
 			case "left":
-				$mode = ($mode + 1) % modeData.modes.length;
-				toaster.pop(modeData.modes[$mode].name);
-				break;
+			//	$mode = ($mode + 1) % modeData.modes.length;
+			//	toaster.pop(modeData.modes[$mode].name);
+			//	break;
 			case "right":
-				$mode = ($mode - 1 + modeData.modes.length) % modeData.modes.length;
-				toaster.pop(modeData.modes[$mode].name);
-				break;
+			//	$mode = ($mode - 1 + modeData.modes.length) % modeData.modes.length;
+			//	toaster.pop(modeData.modes[$mode].name);
+			//	break;
 		}
 	}
 
