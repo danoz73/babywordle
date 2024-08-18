@@ -59,7 +59,7 @@
 		if (game.latestWord.length !== COLS) {
 			toaster.pop("Not enough letters");
 			board.shake(game.guesses);
-		} else if (words.contains(game.latestWord)) {
+		} else {
 			if (game.guesses > 0) {
 				const hm = game.checkHardMode();
 				if ($settings.hard[$mode]) {
@@ -84,9 +84,6 @@
 			$letterStates = $letterStates;
 			if (game.lastWord === word) win();
 			else if (game.guesses === ROWS) lose();
-		} else {
-			toaster.pop("Not in word list");
-			board.shake(game.guesses);
 		}
 	}
 
