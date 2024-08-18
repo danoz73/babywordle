@@ -10,18 +10,15 @@
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json",
-    "deploy": "npx gh-pages -d dist"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/danoz73/babywordle.git"
   },
   "keywords": [],
-  "author": "MikhaD",
-  "bugs": {
-    "url": "https://github.com/MikhaD/wordle/issues"
-  },
-  "homepage": "https://github.com/MikhaD/wordle#readme",
+  "homepage": "https://danoz73.github.io/babywordle",
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.0.2",
     "@tsconfig/svelte": "^3.0.0",

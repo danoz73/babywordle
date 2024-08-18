@@ -4,10 +4,11 @@ import { version } from "./package.json";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/wordle/",
+  //base: "/babywordle/wordle",
   plugins: [svelte({
     preprocess: vitePreprocess()
   })],
+  base: process.env.NODE_ENV === 'production' ? '/babywordle/' : '/',
   build: {
     rollupOptions: {
       output: {
