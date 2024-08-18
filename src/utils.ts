@@ -150,6 +150,8 @@ export function newSeed(mode: GameMode, time?: number) {
 		// 	return now - (now % ms.MINUTE);
 		case GameMode.infinite:
 			return now - (now % ms.SECOND);
+		case GameMode.babyname:
+			return 97410;
 	}
 }
 
@@ -181,6 +183,13 @@ export const modeData: ModeData = {
 			seed: newSeed(GameMode.infinite),
 			historical: false,
 			icon: "m7,100c0,-50 68,-50 93,0c25,50 93,50 93,0c0,-50 -68,-50 -93,0c-25,50 -93,50 -93,0z",
+		},
+		{
+			name: "Guess Her Name!",
+			unit: ms.SECOND,
+			start: 1642428600000,	// 17/01/2022 4:10:00pm UTC+2
+			seed: newSeed(GameMode.babyname),
+			historical: false,
 		},
 		// {
 		// 	name: "Minutely",
