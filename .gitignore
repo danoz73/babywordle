@@ -5,3 +5,5 @@
 package-lock.json
 test.html
 setVersion.mjs
+
+.DS_Store
