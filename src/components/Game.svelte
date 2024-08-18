@@ -56,6 +56,7 @@
 	let timer: Timer;
 
 	function submitWord() {
+		// console.log("submitting word " + game.latestWord + " and correct word is " + word);
 		if (game.latestWord.length !== COLS) {
 			toaster.pop("Not enough letters");
 			board.shake(game.guesses);
@@ -79,6 +80,7 @@
 				}
 			}
 			game.board.state[game.guesses] = game.guess(word);
+			// console.log("word to guess is: " + word)
 			++game.guesses;
 			$letterStates.update(game.lastState, game.lastWord);
 			$letterStates = $letterStates;
@@ -154,13 +156,14 @@
 		// Reset game
 		game = new GameState($mode); // Re-initialize game state after clearing localStorage
 		word = "sadie";
+		// toaster.pop("Secret word is " + word);
 		$letterStates = new LetterStates();
 
 		//if (!game.active) {
 		//	setTimeout(setShowStatsTrue, delay);
 		//}
 	});
-	// $: toaster.pop(word);
+
 </script>
 
 <svelte:body on:click={board.hideCtx} on:contextmenu={board.hideCtx} />
