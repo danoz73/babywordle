@@ -59,6 +59,7 @@
 		flex-direction: column;
 		justify-content: space-between;
 	}
+	/*
 	.links {
 		font-size: var(--fs-medium);
 		border-bottom: 1px solid var(--border-primary);
@@ -66,13 +67,15 @@
 		display: flex;
 		justify-content: space-between;
 	}
-	:global(.settings-top > div) {
-		padding: 16px 0;
-		border-bottom: 1px solid var(--border-primary);
-	}
 	.custom {
 		height: 2rem;
 		fill: var(--fg-secondary);
 		cursor: pointer;
 	}
+	*/
+	:global(.settings-top > div) {
+		padding: 16px 0;
+		border-bottom: 1px solid var(--border-primary);
+	}
+
 </style>

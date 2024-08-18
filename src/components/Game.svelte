@@ -242,6 +242,7 @@
 		margin: auto;
 		position: relative;
 	}
+	/*
 	.historical {
 		text-align: center;
 		margin-top: 10px;
@@ -251,4 +252,5 @@
 	.concede {
 		background-color: var(--red);
 	}
+	*/
 </style>

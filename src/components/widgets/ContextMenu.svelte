@@ -12,6 +12,7 @@
 </script>
 
 <style lang="scss">
+/*
 	.ctx-menu {
 		position: fixed;
 		z-index: 2;
@@ -32,4 +33,5 @@
 			padding-top: 5px;
 		}
 	}
+	*/
 </style>
