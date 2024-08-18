@@ -122,7 +122,8 @@
 		modeData.modes[$mode].historical = false;
 		modeData.modes[$mode].seed = newSeed($mode);
 		game = new GameState($mode, localStorage.getItem(`state-${$mode}`));
-		word = words.words[seededRandomInt(0, words.words.length, modeData.modes[$mode].seed)];
+		// Do not reset the word value! It is fixed in our context
+		//word = words.words[seededRandomInt(0, words.words.length, modeData.modes[$mode].seed)];
 		$letterStates = new LetterStates();
 		showStats = false;
 		showRefresh = false;
@@ -147,7 +148,17 @@
 	}
 
 	onMount(() => {
-		if (!game.active) setTimeout(setShowStatsTrue, delay);
+		// Clear previous attempts
+		localStorage.removeItem(`state-${$mode}`);
+		localStorage.removeItem(`stats-${$mode}`);
+		// Reset game
+		game = new GameState($mode); // Re-initialize game state after clearing localStorage
+		word = "sadie";
+		$letterStates = new LetterStates();
+
+		//if (!game.active) {
+		//	setTimeout(setShowStatsTrue, delay);
+		//}
 	});
 	// $: toaster.pop(word);
 </script>
