@@ -1,8 +1,8 @@
 export enum GameMode {
+	"babyname",
 	"daily",
 	"hourly",
-	"infinite",
-	"babyname"
+	"infinite"
 	// "minutely",
 };
 
