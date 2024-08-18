@@ -43,7 +43,7 @@
 	}
 	mode.subscribe((m) => {
 		localStorage.setItem("mode", `${m}`);
-		window.location.hash = GameMode[m];
+		// window.location.hash = GameMode[m];
 		stats = new Stats(localStorage.getItem(`stats-${m}`) || m);
 		word = words.words[seededRandomInt(0, words.words.length, modeData.modes[m].seed)];
 		if (modeData.modes[m].historical) {
