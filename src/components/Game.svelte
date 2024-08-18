@@ -12,6 +12,7 @@
 		Definition,
 		Tutorial,
 		Statistics,
+		BirthAnnouncement,
 		Distribution,
 		Timer,
 		Toaster,
@@ -173,8 +174,6 @@
 		bind:showRefresh
 		tutorial={$settings.tutorial === 2}
 		on:closeTutPopUp|once={() => ($settings.tutorial = 1)}
-		showStats={stats.played > 0 || (modeData.modes[$mode].historical && !game.active)}
-		on:stats={() => (showStats = true)}
 		on:tutorial={() => (showTutorial = true)}
 		on:settings={() => (showSettings = true)}
 		on:reload={reload}
@@ -214,59 +213,13 @@
 </Modal>
 
 <Modal bind:visible={showStats}>
-	{#if modeData.modes[$mode].historical}
-		<h2 class="historical">Statistics not available for historical games</h2>
-	{:else}
-		<Statistics data={stats} />
-		<Distribution distribution={stats.guesses} {game} />
-	{/if}
-	<Separator visible={!game.active}>
-		<Timer
-			slot="1"
-			bind:this={timer}
-			on:timeup={() => (showRefresh = true)}
-			on:reload={reload}
-		/>
-		<Share slot="2" state={game} />
-	</Separator>
-	<ShareGame wordNumber={game.wordNumber} />
-	{#if !game.active}
-		<Definition {word} alternates={2} />
-	{:else}
-		<!-- Fade with delay is to prevent a bright red button from appearing as soon as refresh is pressed
-		<div
-			in:fade={{ delay: 300 }}
-			class="button concede"
-			on:click={concede}
-			on:keydown={concede}
-		>
-			give up
-		</div>
-		-->
-	{/if}
+		<BirthAnnouncement />
 </Modal>
 
 <Modal fullscreen={true} bind:visible={showSettings}>
 	<Settings state={game} on:historical={() => (showHistorical = true)} />
 
-	<svelte:fragment slot="footer">
-		<a href="https://www.nytimes.com/games/wordle/" target="_blank" rel="noreferrer"
-			>Original Wordle</a
-		>
-		<div>
-			<div>v{version}</div>
-			<div
-				title="double click to reset your stats"
-				class="word"
-				on:dblclick={() => {
-					localStorage.clear();
-					toaster.pop("localStorage cleared");
-				}}
-			>
-				{modeData.modes[$mode].name} word #{game.wordNumber}
-			</div>
-		</div>
-	</svelte:fragment>
+
 </Modal>
 
 <Modal bind:visible={showHistorical}>
