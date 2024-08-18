@@ -39,8 +39,8 @@
 	</div>
 	<div>The letter <strong>M</strong> is not in the name in any spot.</div>
 </div>
-<div>
-	Based on the open source code written by
+<div style="font-size: 10px;">
+	Hacked together from the open source Wordle code written by
 	<a href="https://github.com/MikhaD" target="_blank" rel="noreferrer">MikhaD</a>.
 </div>
 
