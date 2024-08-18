@@ -48,7 +48,7 @@
 			// toaster.pop(modeData.modes[$mode].name);
 		}}
 	>
-		wordle+
+		babywordle
 	</h1>
 	<div class="icons">
 		{#if showStats}
